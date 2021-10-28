@@ -3,7 +3,7 @@ services:
         rest_service:
                 build: .
                 ports:
-                        - "8000:8000"
+                        - "8080:8080"
                 depends_on:
                         - mysql_database
 
@@ -12,4 +12,4 @@ services:
                 environment:
                         - MYSQL_ROOT_PASSWORD="!Rainman1"
                 ports:
-                        - "8001:3306"
+                        - "3306:3306"

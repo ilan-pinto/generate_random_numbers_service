@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+        rest_service:
+                build: .
+                ports:
+                        - "8000:8000"
+                depends_on:
+                        - mysql_database
+
+        mysql_database:
+                image: "mysql:latest" 
+                environment:
+                        - MYSQL_ROOT_PASSWORD="!Rainman1"
+                ports:
+                        - "8001:3306"

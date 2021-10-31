@@ -1,15 +1,27 @@
-version: '3.8'
+version: '3.9'
+
 services:
         rest_service:
                 build: .
+                container_name: rest-service
                 ports:
-                        - "8080:8080"
+                        - 7654:8080
                 depends_on:
                         - mysql_database
+                restart: unless-stopped
 
         mysql_database:
-                image: "mysql:latest" 
+                image: mysql:latest
+                container_name: mysql_database
                 environment:
-                        - MYSQL_ROOT_PASSWORD="!Rainman1"
+                        - MYSQL_ROOT_PASSWORD=!Rainman1
+                        - MYSQL_DATABASE=numbers
+                        - MYSQL_USER=springuser
+                        - MYSQL_PASSWORD=!SpringMagic1
                 ports:
-                        - "3306:3306"
+                        - 4567:3307
+                volumes:
+                        - /opt/mysql-data:/var/lib/mysql:rw
+                restart: unless-stopped
+
+

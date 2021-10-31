@@ -1,11 +1,9 @@
 package com.numbers.random;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "random_number")
 public class RandomNumber {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
